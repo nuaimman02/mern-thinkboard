@@ -46,12 +46,11 @@ if(process.env.NODE_ENV === "production") {
 // Freely to add routes and controllers use the best practices
 // app.use("/api/products", productssRoutes);
 
-connectDB();
-// connectDB().then(() => {
-//     app.listen(port, () => {
-//         console.log("Server started on port: " + port);
-//     });
-// });
+connectDB().then(() => {
+    app.listen(port, () => {
+        console.log("Server started on port: " + port);
+    });
+});
 
 export default app;
 
