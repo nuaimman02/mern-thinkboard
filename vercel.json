@@ -1,12 +1,13 @@
 {
+  "version": 2,
   "rewrites": [
     {
-      "source": "/backend/(.*)",
-      "destination": "/backend/index.vercel.js"
+      "source": "/api/(.*)",
+      "destination": "/backend/src/server.js"
     },
     {
       "source": "/(.*)",
-      "destination": "/"
+      "destination": "/frontend/$1"
     }
   ]
 }

@@ -52,6 +52,8 @@ connectDB().then(() => {
     });
 });
 
+export default app;
+
 /*
 // Made first API!
 app.get("/api/notes", (req, res) => {
