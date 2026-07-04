@@ -1,4 +1,4 @@
-🧠 MERN ThinkBoard
+🧠 MERN ThinkBoard / Papan Pemikir
 ==================
 
 A full-stack, split-architecture note-taking and brainstorming web application built using the MERN stack (MongoDB, Express.js, React, Node.js). **ThinkBoard** features clean CRUD functionality, a modern mobile-first interface, and real-world enhancements like rate limiting to prevent API abuse.
