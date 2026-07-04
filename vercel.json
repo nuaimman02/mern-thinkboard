@@ -1,8 +1,8 @@
 {
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/index.vercel.js"
+      "source": "/backend/(.*)",
+      "destination": "/backend/index.vercel.js"
     },
     {
       "source": "/(.*)",
