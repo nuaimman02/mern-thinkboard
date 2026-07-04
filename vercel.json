@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/backend/src/routes/notesRoutes.js"
+      "destination": "/backend/src/server.js"
     },
     {
       "source": "/(.*)",
