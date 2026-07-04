@@ -50,7 +50,7 @@ A full-stack, split-architecture note-taking and brainstorming web application b
 
 📂 Project Structure
 --------------------
-
+```
 mern-thinkboard/
 ├── backend/                  # Express API Service
 │   ├── src/
@@ -67,7 +67,7 @@ mern-thinkboard/
 │   │   └── App.jsx           # Main React routing framework
 │   └── package.json
 └── README.md
-
+```
 
 ⚙️ Local Development Setup
 --------------------------
@@ -86,61 +86,58 @@ Ensure you have the following installed on your local environment:
     
 
 ### 2\. Clone the Repository
-
-
+```
 git clone https://github.com/nuaimman02/mern-thinkboard.git
 cd mern-thinkboard
 
+```
 ### 3\. Backend Environment Configuration
 
 Navigate to the backend/ directory, create a .env file, and populate the following secrets:
-
-cd backend
-touch .env
-
-
-Add these lines to backend/.env:
-
+```
 PORT=5001
 MONGO_URI=your_mongodb_atlas_connection_string
 UPSTASH_REDIS_REST_URL=your_upstash_redis_rest_url
 UPSTASH_REDIS_REST_TOKEN=your_upstash_redis_rest_token
 NODE_ENV=development
+```
 
 
 Install dependencies and kickstart the development server:
 
+```
 npm install
 npm run dev
+```
 
 _The backend server will run natively at http://localhost:5001._
 
 ### 4\. Frontend Environment Configuration
 
-Open a secondary terminal window, head to the frontend/ directory, and tie the environment to your local API:
+Open a secondary terminal window, head to the frontend/ directory, and install dependencies and run the Vite bundler:
 
-Install dependencies and run the Vite bundler:
-
+```
 npm install
 npm run dev
+```
 
 _Open your browser to http://localhost:5173 to interact with your local sandbox instance._
+
 
 🚀 Deployment
 -------------
 
 ### Backend (Node.js Host)
 
-*   Ensure all critical production environmental values (MONGO\_URI, UPSTASH\_REDIS\_REST\_URL, UPSTASH\_REDIS\_REST\_TOKEN) are configured on your host dashboard (e.g., Render, Railway, DigitalOcean).
+*   Ensure all critical production environmental values ('MONGO\_URI, UPSTASH\_REDIS\_REST\_URL, UPSTASH\_REDIS\_REST\_TOKEN') are configured on your host dashboard (e.g., Render, Railway, DigitalOcean).
     
-*   Set NODE\_ENV=production.
+*   Set 'NODE\_ENV=production'.
     
 *   Clean install dependencies and run using npm ci and your chosen process manager (like PM2 or node src/server.js).
     
 
 ### Frontend (Static/CDN Host)
 
-    
-*   npm run build
+*   `npm run build`
     
 *   Deploy the resulting highly optimized static output inside the frontend/dist directory to a frontend hosting partner (e.g., Vercel, Netlify, Render Static).
