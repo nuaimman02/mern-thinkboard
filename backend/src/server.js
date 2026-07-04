@@ -74,5 +74,3 @@ app.delete("/api/notes/:id", (req, res) => {
     res.status(200).json({message:"Post deleted successfully"});
 });
 */
-
-// mongodb+srv://nuaimmandinie:<password_db>@cluster0.5mreh.mongodb.net/<db_name or leave (test)>?appName=Cluster0
