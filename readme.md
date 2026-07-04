@@ -50,21 +50,27 @@ A full-stack, split-architecture note-taking and brainstorming web application b
 
 📂 Project Structure
 --------------------
+
 ```
 mern-thinkboard/
 ├── backend/                  # Express API Service
 │   ├── src/
-│   │   ├── config/           # DB & Redis connection setups
-│   │   ├── middleware/       # Rate-limiter & request handlers
-│   │   ├── routes/           # API Endpoint routes (notes/boards)
-│   │   └── server.js         # Backend application entrypoint
+│   │   ├── config/           # Database & Upstash Redis configuration
+│   │   ├── controllers/      # Request handlers & core business logic (Note operations)
+│   │   ├── middleware/       # Rate limiting rules & error handling interceptors
+│   │   ├── models/           # Mongoose schemas representing database structures
+│   │   ├── routes/           # REST API routing layer mapped to controllers
+│   │   └── server.js         # Core application setup & initialization entry point
 │   └── package.json
 │
-├── frontend/                 # React UI Application
+├── frontend/                 # React UI Client
 │   ├── src/
-│   │   ├── components/       # Reusable interactive UI components
-│   │   ├── pages/            # View layouts (Home, Note Editor, etc.)
-│   │   └── App.jsx           # Main React routing framework
+│   │   ├── components/       # Reusable components (forms, note UI elements)
+│   │   ├── lib/              # Structural utility configurations (e.g., cn utility)
+│   │   ├── pages/            # Core view panels (Dashboard, Individual Boards)
+│   │   ├── App.jsx           # Application shell managing client routes
+│   │   ├── index.css         # Tailwind directives & layout system configurations
+│   │   └── main.jsx          # DOM rendering entry target mapping App to index.html
 │   └── package.json
 └── README.md
 ```
@@ -76,7 +82,7 @@ mern-thinkboard/
 
 Ensure you have the following installed on your local environment:
 
-*   **Node.js** (v18.x or higher recommended)
+*   **Node.js** (v20.19+, 22.12+ or higher recommended)
     
 *   **npm** (v9.x or higher)
     
@@ -86,14 +92,16 @@ Ensure you have the following installed on your local environment:
     
 
 ### 2\. Clone the Repository
+
 ```
 git clone https://github.com/nuaimman02/mern-thinkboard.git
 cd mern-thinkboard
-
 ```
+
 ### 3\. Backend Environment Configuration
 
 Navigate to the backend/ directory, create a .env file, and populate the following secrets:
+
 ```
 PORT=5001
 MONGO_URI=your_mongodb_atlas_connection_string
@@ -101,7 +109,6 @@ UPSTASH_REDIS_REST_URL=your_upstash_redis_rest_url
 UPSTASH_REDIS_REST_TOKEN=your_upstash_redis_rest_token
 NODE_ENV=development
 ```
-
 
 Install dependencies and kickstart the development server:
 
@@ -127,17 +134,10 @@ _Open your browser to http://localhost:5173 to interact with your local sandbox 
 🚀 Deployment
 -------------
 
-### Backend (Node.js Host)
-
-*   Ensure all critical production environmental values ('MONGO\_URI, UPSTASH\_REDIS\_REST\_URL, UPSTASH\_REDIS\_REST\_TOKEN') are configured on your host dashboard (e.g., Render, Railway, DigitalOcean).
+*   Ensure all critical production environmental values ('MONGO\_URI, UPSTASH\_REDIS\_REST\_URL, UPSTASH\_REDIS\_REST\_TOKEN') are configured on your host dashboard using Render.
     
 *   Set 'NODE\_ENV=production'.
     
-*   Clean install dependencies and run using npm ci and your chosen process manager (like PM2 or node src/server.js).
-    
-
-### Frontend (Static/CDN Host)
-
 *   `npm run build`
     
 *   Deploy the resulting highly optimized static output inside the frontend/dist directory to a frontend hosting partner (e.g., Vercel, Netlify, Render Static).
