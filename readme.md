@@ -138,6 +138,9 @@ _Open your browser to http://localhost:5173 to interact with your local sandbox 
     
 *   Set 'NODE\_ENV=production'.
     
-*   `npm run build`
+*   ```
+    npm run build
+    npm run start
+    ```
     
 *   Deploy the resulting highly optimized static output inside the frontend/dist directory to a frontend hosting partner (e.g., Vercel, Netlify, Render Static).
