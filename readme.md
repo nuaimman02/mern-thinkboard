@@ -51,9 +51,7 @@ A full-stack, split-architecture note-taking and brainstorming web application b
 📂 Project Structure
 --------------------
 
-Plaintext
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   mern-thinkboard/  ├── backend/                  # Express API Service  │   ├── src/  │   │   ├── config/           # DB & Redis connection setups  │   │   ├── middleware/       # Rate-limiter & request handlers  │   │   ├── routes/           # API Endpoint routes (notes/boards)  │   │   └── server.js         # Backend application entrypoint  │   └── package.json  │  ├── frontend/                 # React UI Application  │   ├── src/  │   │   ├── components/       # Reusable interactive UI components  │   │   ├── pages/            # View layouts (Home, Note Editor, etc.)  │   │   └── App.jsx           # Main React routing framework  │   └── package.json  └── README.md   `
+`   mern-thinkboard/  ├── backend/                  # Express API Service  │   ├── src/  │   │   ├── config/           # DB & Redis connection setups  │   │   ├── middleware/       # Rate-limiter & request handlers  │   │   ├── routes/           # API Endpoint routes (notes/boards)  │   │   └── server.js         # Backend application entrypoint  │   └── package.json  │  ├── frontend/                 # React UI Application  │   ├── src/  │   │   ├── components/       # Reusable interactive UI components  │   │   ├── pages/            # View layouts (Home, Note Editor, etc.)  │   │   └── App.jsx           # Main React routing framework  │   └── package.json  └── README.md   `
 
 ⚙️ Local Development Setup
 --------------------------
@@ -73,29 +71,22 @@ Ensure you have the following installed on your local environment:
 
 ### 2\. Clone the Repository
 
-Bash
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   git clone https://github.com/nuaimman02/mern-thinkboard.git  cd mern-thinkboard   `
+`   git clone https://github.com/nuaimman02/mern-thinkboard.git  cd mern-thinkboard   `
 
 ### 3\. Backend Environment Configuration
 
 Navigate to the backend/ directory, create a .env file, and populate the following secrets:
 
-Bash
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   cd backend  touch .env   `
+`   cd backend  touch .env   `
 
 Add these lines to backend/.env:
 
 Code snippet
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   PORT=5001  MONGO_URI=your_mongodb_atlas_connection_string  UPSTASH_REDIS_REST_URL=your_upstash_redis_rest_url  UPSTASH_REDIS_REST_TOKEN=your_upstash_redis_rest_token  NODE_ENV=development   `
+`   PORT=5001  MONGO_URI=your_mongodb_atlas_connection_string  UPSTASH_REDIS_REST_URL=your_upstash_redis_rest_url  UPSTASH_REDIS_REST_TOKEN=your_upstash_redis_rest_token  NODE_ENV=development   `
 
 Install dependencies and kickstart the development server:
 
-Bash
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   npm install  npm run dev   `
+`   npm install  npm run dev   `
 
 _The backend server will run natively at http://localhost:5001._
 
@@ -103,21 +94,17 @@ _The backend server will run natively at http://localhost:5001._
 
 Open a secondary terminal window, head to the frontend/ directory, and tie the environment to your local API:
 
-Bash
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   cd ../frontend  touch .env   `
+`   cd ../frontend  touch .env   `
 
 Add this line to frontend/.env:
 
 Code snippet
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   VITE_API_BASE=http://localhost:5001/api   `
+`   VITE_API_BASE=http://localhost:5001/api   `
 
 Install dependencies and run the Vite bundler:
 
-Bash
-
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   npm install  npm run dev   `
+`   npm install  npm run dev   `
 
 _Open your browser to http://localhost:5173 to interact with your local sandbox instance._
 
