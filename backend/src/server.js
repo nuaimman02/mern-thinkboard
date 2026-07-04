@@ -5,7 +5,8 @@ import dotenv from "dotenv"; // Package to import variables
 import rateLimiter from "./middleware/rateLimiter.js";
 import { connect } from "mongoose";
 import { setServers } from 'node:dns/promises';
-import cors from "cors";
+import cors from "cors"; // To prevent crossover domains from unknown domains
+import path from "path";
 
 // Set public DNS servers
 setServers(['1.1.1.1', '8.8.8.8']);
@@ -15,11 +16,15 @@ dotenv.config();
 const app = express();
 
 const port = process.env. PORT || 5001;
+const __dirname = path.resolve();
 
 // Middleware
-app.use(cors({
+if(process.env.NODE_ENV !== "production") {
+    app.use(cors({
     origin: "http://localhost:5173"
 }));
+}
+
 app.use(express.json()); // This will parse JSON bodies: req.body
 app.use(rateLimiter);
 
@@ -29,6 +34,14 @@ app.use(rateLimiter);
 // }); // This is a simple middleware example
 
 app.use("/api/notes", notesRoutes);
+
+if(process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+    app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/dist", "index.html"));
+    });
+}
 
 // Freely to add routes and controllers use the best practices
 // app.use("/api/products", productssRoutes);
